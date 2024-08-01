@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>'</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Crypto Mining to Robux</h1>
+    <button id="start-mining">Start Mining</button>
+    <button id="stop-mining">Stop Mining</button>
+    <button id="check-hr">Register Device Name</button>
+    <script>
+        $('#start-mining').click(function() {
+            $.post('/start_mining', function(data) {
+                alert(data.status);
+            }).fail(function() {
+                alert('Error starting mining.');
+            });
+        });
+        $('#stop-mining').click(function() {
+            $.post('/stop_mining', function(data) {
+                alert(data.status);
+            }).fail(function() {
+                alert('Error stopping mining.');
+            });
+        });
+        $('#check-hr').click(function() {
+            $.post('/hashrate', function(data) {
+                alert(data.status);
+            }).fail(function() {
+                alert('Error.');
+            });
+        });
+    </script>
+</body>
+</html>
